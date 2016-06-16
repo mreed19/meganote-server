@@ -10,14 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xternbootcamp16/meganote-server.git"
+
+    "url": "git+https://github.com/mreed19/meganote-server.git"
   },
-  "author": "Dave Strus",
+  "author": "Michael Reed",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xternbootcamp16/meganote-server/issues"
+    "url": "https://github.com/mreed19/meganote-server/issues"
   },
-  "homepage": "https://github.com/xternbootcamp16/meganote-server#readme",
+  "homepage": "https://github.com/mreed19/meganote-server#readme"
   "dependencies": {
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
