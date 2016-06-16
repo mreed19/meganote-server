@@ -1,0 +1,19 @@
+{
+  "name": "meganote-server",
+  "version": "0.1.0",
+  "description": "A REST API for note taking.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mreed19/meganote-server.git"
+  },
+  "author": "Michael Reed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mreed19/meganote-server/issues"
+  },
+  "homepage": "https://github.com/mreed19/meganote-server#readme"
+}
