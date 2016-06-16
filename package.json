@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/mreed19/meganote-server/issues"
   },
-  "homepage": "https://github.com/mreed19/meganote-server#readme"
+  "homepage": "https://github.com/mreed19/meganote-server#readme",
   "dependencies": {
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
