@@ -20,7 +20,7 @@
   "homepage": "https://github.com/mreed19/meganote-server#readme",
   "dependencies": {
     "dotenv": "^2.0.0",
-    "express": "^4.13.4",
+    "express": "^4.14.0",
     "mongoose": "^4.5.0"
   },
   "devDependencies": {
