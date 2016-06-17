@@ -41,7 +41,7 @@ app.get('/:id', function(req, res) {
 app.post('/', function(req, res) {
   var note = new Note({
     title: req.body.note.title,
-    body_html: req.body.note.nody_html
+    body_html: req.body.note.body_html
   });
 
   note.save().then(function(noteData) {
