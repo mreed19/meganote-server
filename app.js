@@ -63,7 +63,7 @@ app.put('/:id', function(req, res) {
         note: note
       });
     });
-  })
+  });
 });
 
 // DELETE a note
