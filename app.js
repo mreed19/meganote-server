@@ -2,6 +2,7 @@ require('dotenv').load();
 var express = require('express');
 var Note = require('./models/note');
 var bodyParser = require('body-parser');
+var User = require('./models/user');
 
 var app = express();
 
@@ -80,10 +81,18 @@ app.delete('/:id', function(req, res) {
 
 // CREATE a user
 app.post('/users', function (req, res) {
-  res.json({
-    msg: 'Hooray'
+  var user = new User({
+    name: req.body.user.name,
+    username: req.body.user.username
   });
-})
+
+  user.save().then(function(userData) {
+    res.json({
+      message: 'Successfully created a user.',
+      user: userData
+    });
+  });
+});
 
 app.listen(3030, function() {
   console.log('Listening on http://localhost:3030...');
