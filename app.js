@@ -67,7 +67,6 @@ app.put('/:id', function(req, res) {
 });
 
 // DELETE a note
-
 app.delete('/:id', function(req, res) {
   Note.findOne({_id: req.params.id}).then(function(note) {
     note.remove().then(function() {
@@ -78,6 +77,13 @@ app.delete('/:id', function(req, res) {
     });
   });
 });
+
+// CREATE a user
+app.post('/users', function (req, res) {
+  res.json({
+    msg: 'Hooray'
+  });
+})
 
 app.listen(3030, function() {
   console.log('Listening on http://localhost:3030...');
