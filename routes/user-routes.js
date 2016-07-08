@@ -1,0 +1,19 @@
+var router = require('express').Router();
+var User = require('../models/user');
+
+// CREATE a user
+router.post('/', function (req, res) {
+  var user = new User({
+    name: req.body.user.name,
+    username: req.body.user.username
+  });
+
+  user.save().then(function(userData) {
+    res.json({
+      message: 'Successfully created a user.',
+      user: userData
+    });
+  });
+});
+
+module.exports = router;
