@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var bcrypt = require('bcryptjs');
 var User = require('../models/user');
 
 // CREATE a user
@@ -11,19 +12,13 @@ router.post('/', function (req, res) {
   }
   var user = new User({
     name: req.body.user.name,
-    username: req.body.user.username
+    username: req.body.user.username,
+    passwordDigest: bcrypt.hashSync(req.body.user.password, 10)
   });
 
   user
     .save()
-    .then(
-      userData => {
-        res.json({
-          message: 'Successfully created a user.',
-          user: userData
-        })
-      }
-    );
+    .then(userData => res.json(userData));
 });
 
 module.exports = router;
