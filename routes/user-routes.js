@@ -8,12 +8,16 @@ router.post('/', function (req, res) {
     username: req.body.user.username
   });
 
-  user.save().then(function(userData) {
-    res.json({
-      message: 'Successfully created a user.',
-      user: userData
-    });
-  });
+  user
+    .save()
+    .then(
+      userData => {
+        res.json({
+          message: 'Successfully created a user.',
+          user: userData
+        })
+      }
+    );
 });
 
 module.exports = router;
