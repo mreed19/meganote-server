@@ -17,9 +17,9 @@ router.post('/', function (req, res) {
     passwordDigest: bcrypt.hashSync(req.body.user.password, 10)
   });
 
-  user
-    .save()
-    .then(userData => {
+  user.save()
+  .then(
+    userData => {
       var token = jwt.sign(userData._id, process.env.JWT_SECRET, {
         expiresIn: 60*60*24
       });
@@ -27,7 +27,9 @@ router.post('/', function (req, res) {
         user: userData,
         authToken: token
       });
-    });
+    },
+    () => res.status(400).json({ message: 'Could not create a user.' })
+  );
 });
 
 // UPDATE a user
