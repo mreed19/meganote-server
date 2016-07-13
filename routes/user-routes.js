@@ -32,7 +32,11 @@ router.post('/', function (req, res) {
         authToken: token
       });
     },
-    () => res.status(400).json({ message: 'Could not create a user.' })
+    err => {
+      if (err) {
+        res.status(422).json(err);
+      }
+    }
   );
 });
 
@@ -49,7 +53,7 @@ router.put('/:id', (req, res) => {
         user.save()
         .then(
           () => res.json({ user }),
-          () => res.status(422).json({ message: 'Unable to update user.' })
+          err => res.status(422).json(err)
         );
       }
       else {

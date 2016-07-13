@@ -1,16 +1,17 @@
 var bcrypt = require('bcryptjs');
 var db = require('../config/db');
 var noteSchema = require('./note-schema');
+var beautifyUnique = require('mongoose-beautiful-unique-validation');
 
 var userSchema = db.Schema({
   name: {
     type: String,
-    required: true
+    required: [true, 'Full Name is required.']
   },
   username: {
     type: String,
-    required: true,
-    unique: true
+    required: [true, 'Username is required'],
+    unique: 'That username is already in use'
   },
   passwordDigest: {
     type: String,
@@ -22,6 +23,8 @@ var userSchema = db.Schema({
   },
   notes: [noteSchema]
 });
+
+userSchema.plugin(beautifyUnique);
 
 userSchema.pre('save', function(next) {
   this.updated_at = Date.now();
